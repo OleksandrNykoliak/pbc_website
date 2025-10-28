@@ -76,7 +76,7 @@
             font-size: 50px;
             font-style: normal;
             font-weight: 700;
-            line-height: 65px; /* 130% */
+            line-height: 65px;
             text-transform: uppercase;
             margin-bottom: 20px;
         }
@@ -88,7 +88,7 @@
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
-            line-height: 21px; /* 131.25% */
+            line-height: 21px;
         }
 
         /* ====== СЕРВІС ====== */
@@ -104,7 +104,7 @@
             font-size: 18px;
             font-style: normal;
             font-weight: 700;
-            line-height: 23px; /* 127.778% */
+            line-height: 23px;
             text-transform: uppercase;
             max-width: 240px;
             z-index: 2;
@@ -126,12 +126,6 @@
             transform: translate(3px, -3px);
         }
 
-        /* ====== СПЕЦІАЛЬНИЙ ХОВЕР ====== */
-        .service-cell.handshake-hover:hover {
-            background-image: url("{% static 'images/handshake.png' %}");
-            filter: grayscale(100%);
-        }
-
         /* ====== КВЕД ====== */
         .stats-cell {
             display: flex;
@@ -148,7 +142,7 @@
             font-size: 70px;
             font-style: normal;
             font-weight: 700;
-            line-height: 65px; /* 92.857% */
+            line-height: 65px;
             text-transform: uppercase;
             margin-bottom: 10px;
         }
@@ -168,6 +162,37 @@
         .empty-cell {
             background-color: #0F0F0F;
             pointer-events: none;
+        }
+
+        /* ====== ХОВЕР ЕФЕКТИ ДЛЯ КОЖНОГО СЕРВІСУ ====== */
+        .service-cell[data-service="due-diligence"]:hover {
+            background-image: url("{% static 'images/due.png' %}");
+            filter: grayscale(100%);
+        }
+
+        .service-cell[data-service="contracts"]:hover {
+            background-image: url("{% static 'images/dog.png' %}");
+            filter: grayscale(100%);
+        }
+
+        .service-cell[data-service="permit"]:hover {
+            background-image: url("{% static 'images/handshake.png' %}");
+            filter: grayscale(100%);
+        }
+
+        .service-cell[data-service="construction"]:hover {
+            background-image: url("{% static 'images/sup.png' %}");
+            filter: grayscale(100%);
+        }
+
+        .service-cell[data-service="commissioning"]:hover {
+            background-image: url("{% static 'images/vv.png' %}");
+            filter: grayscale(100%);
+        }
+
+        .service-cell[data-service="registration"]:hover {
+            background-image: url("{% static 'images/reest.png' %}");
+            filter: grayscale(100%);
         }
 
         /* ====== МОБІЛЬНА ВЕРСІЯ (тільки до 768px) ====== */
@@ -255,14 +280,6 @@
             .stats-label {
                 font-size: clamp(28px, 8vw, 36px);
                 line-height: 1.1;
-            }
-
-            /* Спецефект для мобільних */
-            .service-cell.handshake-hover:active {
-                background-image: url("{% static 'images/handshake.png' %}");
-                background-size: cover;
-                background-position: center;
-                filter: grayscale(100%) brightness(0.7);
             }
 
             /* Анімації для мобільних */
@@ -374,7 +391,7 @@
                     <h2 class="services-title">ПОСЛУГИ</h2>
                     <p class="services-description">
                         повний спектр юридичних послуг для будівельних компаній, 
-                        девелоперів, інвесторів та приватних замовників
+                        девелоперів, інвесторів та приватних замовникв
                     </p>
                 </div>
             </div>
@@ -382,7 +399,7 @@
             <div class="grid-cell empty-cell"></div>
 
             <!-- 2 -->
-            <div class="grid-cell service-cell">
+            <div class="grid-cell service-cell" data-service="due-diligence">
                 <h3 class="service-title">DUE DILIGENCE ЗЕМЕЛЬНОЇ ДІЛЯНКИ</h3>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -392,7 +409,7 @@
             <div class="grid-cell empty-cell"></div>
 
             <!-- 3 -->
-            <div class="grid-cell service-cell">
+            <div class="grid-cell service-cell" data-service="contracts">
                 <h3 class="service-title">ПІДГОТОВКА ДОГОВОРІВ ПІДРЯДУ, ОРЕНДИ, КУПІВЛІ-ПРОДАЖУ</h3>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -401,8 +418,8 @@
 
             <div class="grid-cell empty-cell"></div>
 
-            <!-- 4 (спецефект при hover) -->
-            <div class="grid-cell service-cell handshake-hover">
+            <!-- 4 -->
+            <div class="grid-cell service-cell" data-service="permit">
                 <h3 class="service-title">ОТРИМАННЯ ДОЗВІЛЬНОЇ ДОКУМЕНТАЦІЇ НА БУДІВНИЦТВО</h3>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -412,7 +429,7 @@
             <div class="grid-cell empty-cell"></div>
 
             <!-- 5 -->
-            <div class="grid-cell service-cell">
+            <div class="grid-cell service-cell" data-service="construction">
                 <h3 class="service-title">СУПРОВІД ПІД ЧАС БУДІВНИЦТВА</h3>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -422,16 +439,16 @@
             <div class="grid-cell empty-cell"></div>
 
             <!-- 6 -->
-            <!-- <div class="grid-cell stats-cell">
-                <div class="stats-number">14+</div>
-                <div class="stats-label">КВЕД</div>
-            </div> -->
+            <div class="grid-cell stats-cell">
+                <div class="stats-number"></div>
+                <div class="stats-label"></div>
+            </div> 
 
             <div class="grid-cell empty-cell"></div>
 
             <!-- 7 -->
-            <div class="grid-cell service-cell">
-                <h3 class="service-title">ОТРИМАННЯ ДОЗВОЛІВ І ПОГОДЖЕНЬ НА БУДІВНИЦТВО</h3>
+            <div class="grid-cell service-cell" data-service="commissioning">
+                <h3 class="service-title">ВВЕДЕННЯ ОБ'ЄКТА В ЕКСПЛУАТАЦІЮ</h3>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -440,7 +457,7 @@
             <div class="grid-cell empty-cell"></div>
 
             <!-- 8 -->
-            <div class="grid-cell service-cell">
+            <div class="grid-cell service-cell" data-service="registration">
                 <h3 class="service-title">РЕЄСТРАЦІЯ ПРАВА ВЛАСНОСТІ</h3>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -460,30 +477,42 @@
                 serviceCells.forEach(cell => {
                     cell.addEventListener('touchstart', function() {
                         this.style.backgroundColor = '#2a2a2a';
+                        
+                        // Додаємо background image для мобільних
+                        const serviceType = this.getAttribute('data-service');
+                        if (serviceType) {
+                            switch(serviceType) {
+                                case 'due-diligence':
+                                    this.style.backgroundImage = "url('{% static 'images/due.png' %}')";
+                                    break;
+                                case 'contracts':
+                                    this.style.backgroundImage = "url('{% static 'images/contracts.png' %}')";
+                                    break;
+                                case 'permit':
+                                    this.style.backgroundImage = "url('{% static 'images/handshake.png' %}')";
+                                    break;
+                                case 'construction':
+                                    this.style.backgroundImage = "url('{% static 'images/sup.png' %}')";
+                                    break;
+                                case 'commissioning':
+                                    this.style.backgroundImage = "url('{% static 'images/vv.png' %}')";
+                                    break;
+                                case 'registration':
+                                    this.style.backgroundImage = "url('{% static 'images/reest.png' %}')";
+                                    break;
+                            }
+                            this.style.filter = 'grayscale(100%) brightness(0.7)';
+                        }
                     });
                     
                     cell.addEventListener('touchend', function() {
                         setTimeout(() => {
                             this.style.backgroundColor = '';
-                        }, 150);
-                    });
-                });
-
-                // Спецефект для handshake клітинки
-                const handshakeCell = document.querySelector('.handshake-hover');
-                if (handshakeCell) {
-                    handshakeCell.addEventListener('touchstart', function() {
-                        this.style.backgroundImage = "url('{% static 'images/handshake.png' %}')";
-                        this.style.filter = 'grayscale(100%) brightness(0.7)';
-                    });
-                    
-                    handshakeCell.addEventListener('touchend', function() {
-                        setTimeout(() => {
                             this.style.backgroundImage = '';
                             this.style.filter = '';
                         }, 300);
                     });
-                }
+                });
             }
 
             // Перевірка зміни орієнтації
