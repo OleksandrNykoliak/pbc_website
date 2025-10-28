@@ -214,6 +214,11 @@
                 display: none !important;
             }
 
+            /* Додаємо це правило для приховування stats-cell на мобільних */
+            .stats-cell {
+                display: none !important;
+            }
+
             .grid-cell {
                 min-height: 280px;
                 padding: 30px 20px;
@@ -266,22 +271,6 @@
                 height: 40px;
             }
 
-            .stats-cell {
-                min-height: 250px;
-                background: #0F0F0F;
-            }
-
-            .stats-number {
-                font-size: clamp(42px, 10vw, 56px);
-                line-height: 1;
-                margin-bottom: 8px;
-            }
-
-            .stats-label {
-                font-size: clamp(28px, 8vw, 36px);
-                line-height: 1.1;
-            }
-
             /* Анімації для мобільних */
             .grid-cell {
                 opacity: 0;
@@ -331,10 +320,6 @@
                 bottom: 15px;
                 right: 15px;
             }
-
-            .stats-cell {
-                min-height: 220px;
-            }
         }
 
         /* Горизонтальна орієнтація на мобільних */
@@ -355,14 +340,6 @@
 
             .service-title {
                 font-size: 16px;
-            }
-
-            .stats-number {
-                font-size: 36px;
-            }
-
-            .stats-label {
-                font-size: 24px;
             }
         }
 
@@ -486,7 +463,7 @@
                                     this.style.backgroundImage = "url('{% static 'images/due.png' %}')";
                                     break;
                                 case 'contracts':
-                                    this.style.backgroundImage = "url('{% static 'images/contracts.png' %}')";
+                                    this.style.backgroundImage = "url('{% static 'images/dog.png' %}')";
                                     break;
                                 case 'permit':
                                     this.style.backgroundImage = "url('{% static 'images/handshake.png' %}')";
