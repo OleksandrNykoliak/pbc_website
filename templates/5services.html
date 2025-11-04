@@ -109,6 +109,35 @@
             max-width: 240px;
             z-index: 2;
             position: relative;
+            margin-bottom: 10px;
+        }
+
+        /* ====== ТЕКСТ ПОСЛУГИ (ПРИХОВАНИЙ) ====== */
+        .service-content {
+            display: none;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #ccc;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .service-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-content li {
+            margin-bottom: 5px;
+            padding-left: 0;
+        }
+
+        /* Показуємо контент при hover або активному стані */
+        .service-cell:hover .service-content,
+        .service-cell.active .service-content {
+            display: block;
         }
 
         /* ====== СТРІЛКА ====== */
@@ -264,11 +293,25 @@
                 max-width: 280px;
             }
 
+            .service-content {
+                font-size: 13px;
+                max-width: 100%;
+            }
+
             .service-arrow {
                 bottom: 20px;
                 right: 20px;
                 width: 40px;
                 height: 40px;
+            }
+
+            /* На мобільних показуємо контент тільки при кліку */
+            .service-cell .service-content {
+                display: none;
+            }
+            
+            .service-cell.active .service-content {
+                display: block;
             }
 
             /* Анімації для мобільних */
@@ -356,10 +399,51 @@
                 text-align: center;
             }
         }
+
+        .service-cell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45); /* легке затемнення */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    border-radius: 0;
+}
+
+.service-cell:hover::before,
+.service-cell.active::before {
+    opacity: 1;
+}
+
+/* перекриваємо порядок, щоб текст був над overlay */
+.service-title,
+.service-content,
+.service-arrow {
+    position: relative;
+    z-index: 2;
+}
+     
+
+.service-arrow {
+    position: absolute;
+    bottom: 24px; /* було 36px → тепер нижче */
+    right: 32px;
+    width: 55px;
+    height: 55px;
+    transition: transform 0.3s ease, bottom 0.3s ease;
+    z-index: 2;
+}
+
+.service-cell:hover .service-arrow {
+    transform: translate(3px, -3px);
+    bottom: 22px; /* трохи вниз при hover, дає ефект руху */
+}
+
     </style>
 </head>
 <body>
-    <section class="services-section">
+    <section class="services-section" id="servicessection">
         <div class="services-grid">
 
             <!-- 1 -->
@@ -378,42 +462,116 @@
             <!-- 2 -->
             <div class="grid-cell service-cell" data-service="due-diligence">
                 <h3 class="service-title">DUE DILIGENCE ЗЕМЕЛЬНОЇ ДІЛЯНКИ</h3>
+                <div class="service-content">
+                    <ul>
+                        <li>зміна цільового призначення</li>
+                        <li>укладення договорів оренди, суперфіцію</li>
+                        <li>оформлення права сервітуту</li>
+                        <li>оформлення права користування</li>
+                        <li>оформлення права власності</li>
+                    </ul>
+                </div>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-
-            <div class="grid-cell empty-cell"></div>
+            
+            <div class="grid-cell service-cell" data-service="due-diligence">
+                <h3 class="service-title">Супровід розроблення та затвердження містобудівної документації</h3>
+                <div class="service-content">
+                    <ul>
+                        <li>отримання Містобудівних умов та обмежень</li>
+                        <li>розроблення Містобудівного розрахунку</li>
+                        <li>розроблення Детального плану території (ДПТ)</li>
+                    </ul>
+                </div>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
 
             <!-- 3 -->
             <div class="grid-cell service-cell" data-service="contracts">
-                <h3 class="service-title">ПІДГОТОВКА ДОГОВОРІВ ПІДРЯДУ, ОРЕНДИ, КУПІВЛІ-ПРОДАЖУ</h3>
+                <h3 class="service-title">Будівельна амністія</h3>
+                <div class="service-content">
+                    <!-- Тут може бути додатковий текст, якщо потрібно -->
+                </div>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-
-            <div class="grid-cell empty-cell"></div>
+            
+            <div class="grid-cell service-cell" data-service="due-diligence">
+                <h3 class="service-title">Супровід отримання будівельного паспорту або схеми намірів забудови земельної ділянки</h3>
+                <div class="service-content">
+                    <!-- Тут може бути додатковий текст, якщо потрібно -->
+                </div>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
 
             <!-- 4 -->
             <div class="grid-cell service-cell" data-service="permit">
                 <h3 class="service-title">ОТРИМАННЯ ДОЗВІЛЬНОЇ ДОКУМЕНТАЦІЇ НА БУДІВНИЦТВО</h3>
+                <div class="service-content">
+                    <ul>
+                        <li>повідомлення про початок виконання підготовчих робіт</li>
+                        <li>повідомлення про початок виконання будівельних робіт</li>
+                        <li>дозвіл на виконання будівельних робіт</li>
+                    </ul>
+                </div>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
 
-            <div class="grid-cell empty-cell"></div>
+            <div class="grid-cell service-cell" data-service="permit">
+                <h3 class="service-title">Комплексний супровід будівництва</h3>
+                <div class="service-content">
+                    <ul>
+                        <li>розробка проєкту, аналіз проєктних рішень</li>
+                        <li>операції з земельними ділянками</li>
+                        <li>підготовка договорів, звернень</li>
+                        <li>представництво в державних установах</li>
+                        <li>отримання технічних умов</li>
+                        <li>містобудівна документація</li>
+                        <li>дозвільна документація</li>
+                        <li>супровід будівництва, оптимізація витрат замовника</li>
+                        <li>введення обʼєкта в експлуатацію</li>
+                        <li>отримання права власності</li>
+                    </ul>
+                </div>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
 
             <!-- 5 -->
             <div class="grid-cell service-cell" data-service="construction">
-                <h3 class="service-title">СУПРОВІД ПІД ЧАС БУДІВНИЦТВА</h3>
+                <h3 class="service-title">Отримання технічних умов для проєктування</h3>
+                <div class="service-content">
+                    <ul>
+                        <li>Технічні умови на водопостачання та водовідведення</li>
+                        <li>Теплопостачання</li>
+                        <li>Електропостачання</li>
+                        <li>Газопостачання</li>
+                    </ul>
+                </div>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
 
-            <div class="grid-cell empty-cell"></div>
+            <div class="grid-cell service-cell" data-service="due-diligence">
+                <h3 class="service-title">Погодження проєктів на обʼєкти в зоні охорони культурної спадщини</h3>
+                <div class="service-content">
+                    <!-- Тут може бути додатковий текст, якщо потрібно -->
+                </div>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
 
             <!-- 6 -->
             <div class="grid-cell stats-cell">
@@ -421,73 +579,61 @@
                 <div class="stats-label"></div>
             </div> 
 
-            <div class="grid-cell empty-cell"></div>
-
             <!-- 7 -->
             <div class="grid-cell service-cell" data-service="commissioning">
-                <h3 class="service-title">ВВЕДЕННЯ ОБ'ЄКТА В ЕКСПЛУАТАЦІЮ</h3>
+                <h3 class="service-title">Робота в електронних системах</h3>
+                <div class="service-content">
+                    <ul>
+                        <li>Єдина державна електронна система у сфері будівництва (ЄДЕССБ)</li>
+                        <li>ДІЯ</li>
+                        <li>Державний реєстр речових прав</li>
+                        <li>Містобудівний кадастр</li>
+                        <li>Державний земельний кадастр</li>
+                    </ul>
+                </div>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-
+            
             <div class="grid-cell empty-cell"></div>
-
+            
             <!-- 8 -->
             <div class="grid-cell service-cell" data-service="registration">
-                <h3 class="service-title">РЕЄСТРАЦІЯ ПРАВА ВЛАСНОСТІ</h3>
+                <h3 class="service-title">Державна реєстрація права власності на нерухоме майно</h3>
+                <div class="service-content">
+                    <!-- Тут може бути додатковий текст, якщо потрібно -->
+                </div>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-
+            
+            <div class="grid-cell empty-cell"></div>
         </div>
     </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const serviceCells = document.querySelectorAll('.service-cell');
+            
+            // Обробка кліків для мобільних пристроїв
+            serviceCells.forEach(cell => {
+                cell.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        // На мобільних: перемикаємо клас active
+                        this.classList.toggle('active');
+                    }
+                });
+            });
+
             // Оптимізація для мобільних пристроїв
             if (window.innerWidth <= 768) {
                 // Замінюємо hover на touch для мобільних
-                const serviceCells = document.querySelectorAll('.service-cell');
-                
                 serviceCells.forEach(cell => {
-                    cell.addEventListener('touchstart', function() {
-                        this.style.backgroundColor = '#2a2a2a';
-                        
-                        // Додаємо background image для мобільних
-                        const serviceType = this.getAttribute('data-service');
-                        if (serviceType) {
-                            switch(serviceType) {
-                                case 'due-diligence':
-                                    this.style.backgroundImage = "url('{% static 'images/1.jpg' %}')";
-                                    break;
-                                case 'contracts':
-                                    this.style.backgroundImage = "url('{% static 'images/2.jpg' %}')";
-                                    break;
-                                case 'permit':
-                                    this.style.backgroundImage = "url('{% static 'images/3.jpg' %}')";
-                                    break;
-                                case 'construction':
-                                    this.style.backgroundImage = "url('{% static 'images/4.jpg' %}')";
-                                    break;
-                                case 'commissioning':
-                                    this.style.backgroundImage = "url('{% static 'images/5.jpg' %}')";
-                                    break;
-                                case 'registration':
-                                    this.style.backgroundImage = "url('{% static 'images/6.jpg' %}')";
-                                    break;
-                            }
-                            this.style.filter = 'grayscale(100%) brightness(0.7)';
-                        }
-                    });
-                    
-                    cell.addEventListener('touchend', function() {
-                        setTimeout(() => {
-                            this.style.backgroundColor = '';
-                            this.style.backgroundImage = '';
-                            this.style.filter = '';
-                        }, 300);
+                    cell.addEventListener('touchstart', function(e) {
+                        // Для мобільних використовуємо тільки клік, не hover
+                        e.preventDefault();
                     });
                 });
             }
