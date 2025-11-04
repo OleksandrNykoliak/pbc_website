@@ -49,11 +49,14 @@
     }
 
     /* ===== Заголовок ===== */
+  
+
     .pbc-team-header {
-      text-align: center;
-      width: 410px; /* фіксована ширина */
-      margin-bottom: 80px;
-    }
+  text-align: center;
+  width: 820px; /* удвічі ширше */
+  max-width: 90%; /* щоб не вилазило за край екрана */
+  margin-bottom: 80px;
+}
 
     .pbc-team-title {
       color: var(--gray-900, #121212);
@@ -70,6 +73,7 @@
     .pbc-team-description {
       color: var(--gray-700, #3B3B3B);
       text-align: center;
+      width: 100%;
       font-family: "TikTok Sans";
       font-size: 16px;
       font-style: normal;
@@ -370,7 +374,7 @@
             </svg>
           </div>
           <div class="pbc-team-text">
-            ДОСКОНАЛО ОРІЄНТУЮТЬСЯ У ЗАКОНОДАВСТВІ ТА НОРМАТИВНІЙ БАЗІ
+            Наша команда - це юристи та експерти в містобудівній документації 
           </div>
           <img src="{% static 'images/team/t1.png' %}" alt="Юридична база" class="pbc-team-image" />
         </div>
@@ -383,7 +387,7 @@
             </svg>
           </div>
           <div class="pbc-team-text">
-            МАЮТЬ БАГАТОРІЧНИЙ ПРАКТИЧНИЙ ДОСВІД У БУДІВНИЦТВІ ТА ДЕВЕЛОПМЕНТІ
+            Маємо багаторічний практичний досвід у сфері девелопменту 
           </div>
           <img src="{% static 'images/team/t2.png' %}" alt="Будівельники" class="pbc-team-image" />
         </div>
@@ -396,7 +400,7 @@
             </svg>
           </div>
           <div class="pbc-team-text">
-            ВМІЮТЬ ЗНАХОДИТИ ЕФЕКТИВНІ РІШЕННЯ НАВІТЬ У СКЛАДНИХ СИТУАЦІЯХ
+            Допомагаємо реалізовувати проекти швидко та з урахуванням вимог чинного законодавства
           </div>
           <img src="{% static 'images/team/t3.png' %}" alt="Архітектори" class="pbc-team-image" />
         </div>

@@ -341,7 +341,35 @@
       .pbc-contact-location {
         margin-top: 40px;
       }
+      .pbc-contact-phone {
+  font-size: clamp(18px, 5vw, 24px);
+  line-height: 1.3;
+}
+
+.pbc-contact-region {
+  font-size: clamp(14px, 4.5vw, 18px);
+  line-height: 1.4;
+}
+
     }
+
+    .pbc-contact-phone {
+  color: var(--gray-900);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 35px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.pbc-contact-region {
+  color: var(--gray-900);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  opacity: 0.9;
+}
+
   </style>
 </head>
 <body>
@@ -352,17 +380,24 @@
           <img src="{% static 'images/lvivratusha.png' %}" alt="Львів — Ратуша">
         </div>
 
-        <div class="pbc-contact-info">
-          <h2 class="pbc-contact-title">З ВАМИ НА <br> КОЖНОМУ ЕТАПІ</h2>
-          <a href="mailto:buildcons@proton.me" class="pbc-contact-email">BUILDCONS@PROTON.ME</a>
-          <div class="pbc-contact-location">
-            <svg class="pbc-contact-location-icon" viewBox="0 0 16 16" fill="none"
-              xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-              <path d="M8 0C4.1 0 1 3.1 1 7C1 12 8 16 8 16C8 16 15 12 15 7C15 3.1 11.9 0 8 0ZM8 9.5C6.6 9.5 5.5 8.4 5.5 7C5.5 5.6 6.6 4.5 8 4.5C9.4 4.5 10.5 5.6 10.5 7C10.5 8.4 9.4 9.5 8 9.5Z" fill="#121212"/>
-            </svg>
-            <span class="pbc-contact-location-text">ЛЬВІВ, УКРАЇНА</span>
-          </div>
-        </div>
+<div class="pbc-contact-info">
+  <h2 class="pbc-contact-title">З ВАМИ НА <br> КОЖНОМУ ЕТАПІ</h2>
+
+  <a href="mailto:buildcons@proton.me" class="pbc-contact-email">BUILDCONS@PROTON.ME</a>
+
+  <div class="pbc-contact-phone">+38 (093) 944-45-51</div>
+  <div class="pbc-contact-region">Працюємо по всій території України</div>
+
+  <div class="pbc-contact-location">
+    <svg class="pbc-contact-location-icon" viewBox="0 0 16 16" fill="none"
+      xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+      <path d="M8 0C4.1 0 1 3.1 1 7C1 12 8 16 8 16C8 16 15 12 15 7C15 3.1 11.9 0 8 0ZM8 9.5C6.6 9.5 5.5 8.4 5.5 7C5.5 5.6 6.6 4.5 8 4.5C9.4 4.5 10.5 5.6 10.5 7C10.5 8.4 9.4 9.5 8 9.5Z" fill="#121212"/>
+    </svg>
+    <span class="pbc-contact-location-text">Головний офіс в м. Львів</span>
+  </div>
+</div>
+
+
       </div>
     </div>
   </section>
