@@ -193,36 +193,53 @@
             pointer-events: none;
         }
 
-        /* ====== ХОВЕР ЕФЕКТИ ДЛЯ КОЖНОГО СЕРВІСУ ====== */
-        .service-cell[data-service="due-diligence"]:hover {
-            background-image: url("{% static 'images/1.jpg' %}");
-            filter: grayscale(100%);
-        }
+/* ====== ХОВЕР ЕФЕКТИ ДЛЯ КОЖНОГО СЕРВІСУ ====== */
+.service-cell[data-service="due-diligence"]:hover {
+    background-image: url("{% static 'images/1.jpg' %}");
+    filter: grayscale(100%);
+}
 
-        .service-cell[data-service="contracts"]:hover {
-            background-image: url("{% static 'images/2.jpg' %}");
-            filter: grayscale(100%);
-        }
+.service-cell[data-service="contracts"]:hover {
+    background-image: url("{% static 'images/2.jpg' %}");
+    filter: grayscale(100%);
+}
 
-        .service-cell[data-service="permit"]:hover {
-            background-image: url("{% static 'images/3.jpg' %}");
-            filter: grayscale(100%);
-        }
+.service-cell[data-service="permit"]:hover {
+    background-image: url("{% static 'images/3.jpg' %}");
+    filter: grayscale(100%);
+}
 
-        .service-cell[data-service="construction"]:hover {
-            background-image: url("{% static 'images/4.jpg' %}");
-            filter: grayscale(100%);
-        }
+.service-cell[data-service="construction"]:hover {
+    background-image: url("{% static 'images/4.jpg' %}");
+    filter: grayscale(100%);
+}
 
-        .service-cell[data-service="commissioning"]:hover {
-            background-image: url("{% static 'images/5.jpg' %}");
-            filter: grayscale(100%);
-        }
+.service-cell[data-service="commissioning"]:hover {
+    background-image: url("{% static 'images/5.jpg' %}");
+    filter: grayscale(100%);
+}
 
-        .service-cell[data-service="registration"]:hover {
-            background-image: url("{% static 'images/6.jpg' %}");
-            filter: grayscale(100%);
-        }
+.service-cell[data-service="registration"]:hover {
+    background-image: url("{% static 'images/6.jpg' %}");
+    filter: grayscale(100%);
+}
+
+/* ====== ДОДАНІ НОВІ ====== */
+.service-cell[data-service="mistobud"]:hover {
+    background-image: url("{% static 'images/mistobud.jpg' %}");
+    filter: grayscale(100%);
+}
+
+.service-cell[data-service="amnistia"]:hover {
+    background-image: url("{% static 'images/amnistia.jpg' %}");
+    filter: grayscale(100%);
+}
+
+.service-cell[data-service="budpasport"]:hover {
+    background-image: url("{% static 'images/budpasport.jpg' %}");
+    filter: grayscale(100%);
+}
+
 
         /* ====== МОБІЛЬНА ВЕРСІЯ (тільки до 768px) ====== */
         @media (max-width: 768px) {
@@ -460,7 +477,7 @@
             <div class="grid-cell empty-cell"></div>
 
             <!-- 2 -->
-            <div class="grid-cell service-cell" data-service="due-diligence">
+            <div class="grid-cell service-cell" data-service="mistobud">
                 <h3 class="service-title">DUE DILIGENCE ЗЕМЕЛЬНОЇ ДІЛЯНКИ</h3>
                 <div class="service-content">
                     <ul>
@@ -491,7 +508,7 @@
             </div>
 
             <!-- 3 -->
-            <div class="grid-cell service-cell" data-service="contracts">
+            <div class="grid-cell service-cell" data-service="amnistia">
                 <h3 class="service-title">Будівельна амністія</h3>
                 <div class="service-content">
                     <!-- Тут може бути додатковий текст, якщо потрібно -->
@@ -575,7 +592,7 @@
 
             <div class="grid-cell empty-cell"></div>
             
-           <div class="grid-cell service-cell" data-service="due-diligence">
+           <div class="grid-cell service-cell" data-service="budpasport">
                 <h3 class="service-title">Супровід отримання будівельного паспорту або схеми намірів забудови земельної ділянки</h3>
                 <div class="service-content">
                     <!-- Тут може бути додатковий текст, якщо потрібно -->
@@ -606,7 +623,6 @@
             <div class="grid-cell service-cell" data-service="registration">
                 <h3 class="service-title">Державна реєстрація права власності на нерухоме майно</h3>
                 <div class="service-content">
-                    <!-- Тут може бути додатковий текст, якщо потрібно -->
                 </div>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
