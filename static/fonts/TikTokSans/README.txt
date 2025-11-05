@@ -1,9 +1,9 @@
-TikTok Sans Variable Font
+e-Ukraine Head Variable Font
 =========================
 
-This download contains TikTok Sans as both a variable font and static fonts.
+This download contains e-Ukraine Head as both a variable font and static fonts.
 
-TikTok Sans is a variable font with these axes:
+e-Ukraine Head is a variable font with these axes:
   opsz
   slnt
   wdth
@@ -14,7 +14,7 @@ This means all the styles are contained in a single file:
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for TikTok Sans:
+in those cases you can use the static font files for e-Ukraine Head:
   static/TikTokSans_Condensed-Light.ttf
   static/TikTokSans_Condensed-Regular.ttf
   static/TikTokSans_Condensed-Medium.ttf
