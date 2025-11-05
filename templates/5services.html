@@ -502,6 +502,35 @@
   }
 }
 
+/* === ПЛАВНА АНІМАЦІЯ ПОЯВИ ТЕКСТУ НА МОБІЛЬНИХ === */
+@media (max-width: 768px) {
+  .service-cell .service-content {
+    display: block; /* щоб елемент існував для анімації */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.45s ease;
+  }
+
+  .service-cell.active .service-content {
+    max-height: 300px; /* або більше, якщо текст довгий */
+    opacity: 1;
+  }
+
+  /* легке підсвічування активного блоку */
+  .service-cell.active {
+    background: #242424;
+    transition: background 0.4s ease;
+  }
+
+  /* трохи плавності при масштабуванні */
+  .service-cell:active {
+    transform: scale(0.985);
+    transition: transform 0.25s ease;
+  }
+}
+
+
     </style>
 </head>
 <body>
