@@ -781,6 +781,32 @@
   }
 }
 
+/* ===== ФІКСОВАНИЙ ХЕДЕР НА ДЕСКТОПІ ===== */
+@media (min-width: 769px) {
+  .header-page .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(14, 16, 18, 0.98); /* легка прозорість */
+    backdrop-filter: blur(6px); /* ефект скла */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    z-index: 9999;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Відступ щоб контент не заходив під хедер */
+  body.header-page {
+    padding-top: 179px; /* рівно висота хедера */
+  }
+
+  /* При прокрутці робимо ще темніше — ефект “приклеєного” хедера */
+  .header-page.scrolled .site-header {
+    background: rgba(14, 16, 18, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
 
   </style>
 </head>
