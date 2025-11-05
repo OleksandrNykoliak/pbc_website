@@ -21,12 +21,13 @@
         }
 
         /* ====== СЕКЦІЯ ====== */
-        .services-section {
-            width: 100vw;
-            margin: 0;
-            padding: 0;
-            height: 1080px;
-        }
+       .services-section {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    min-height: 100vh;
+}
 
         /* ====== СІТКА 5x4 ====== */
         .services-grid {
@@ -195,29 +196,26 @@
 
 /* ====== ХОВЕР ЕФЕКТИ ДЛЯ КОЖНОГО СЕРВІСУ ====== */
 .service-cell[data-service="due-diligence"]:hover {
+    background-image: url("{% static 'images/mistobud-4x3.jpg' %}");
+    filter: grayscale(100%);
+}
+
+.service-cell[data-service="dddmistobud"]:hover {
     background-image: url("{% static 'images/1.jpg' %}");
     filter: grayscale(100%);
 }
 
-.service-cell[data-service="contracts"]:hover {
-    background-image: url("{% static 'images/2.jpg' %}");
-    filter: grayscale(100%);
-}
 
 .service-cell[data-service="permit"]:hover {
-    background-image: url("{% static 'images/3.jpg' %}");
+    background-image: url("{% static 'images/3-4x3.jpg' %}");
     filter: grayscale(100%);
 }
 
 .service-cell[data-service="construction"]:hover {
-    background-image: url("{% static 'images/4.jpg' %}");
+    background-image: url("{% static 'images/4-4x3.jpg' %}");
     filter: grayscale(100%);
 }
 
-.service-cell[data-service="commissioning"]:hover {
-    background-image: url("{% static 'images/5.jpg' %}");
-    filter: grayscale(100%);
-}
 
 .service-cell[data-service="registration"]:hover {
     background-image: url("{% static 'images/6.jpg' %}");
@@ -226,35 +224,40 @@
 
 /* ====== ДОДАНІ НОВІ ====== */
 .service-cell[data-service="mistobud"]:hover {
-    background-image: url("{% static 'images/mistobud.jpg' %}");
+    background-image: url("{% static 'images/mistobud-4x3.jpg' %}");
     filter: grayscale(100%);
 }
 
 .service-cell[data-service="amnistia"]:hover {
-    background-image: url("{% static 'images/amnistia.jpg' %}");
+    background-image: url("{% static 'images/amnistia-4x3.jpg' %}");
     filter: grayscale(100%);
 }
 
 .service-cell[data-service="budpasport"]:hover {
-    background-image: url("{% static 'images/budpasport.jpg' %}");
+    background-image: url("{% static 'images/budpasport-4x3.jpg' %}");
     filter: grayscale(100%);
 }
 
 /* ====== НОВІ ТРИ ХОВЕРИ ====== */
 .service-cell[data-service="kompleksnyy"]:hover {
-    background-image: url("{% static 'images/kompleksnysuprovid.jpg' %}");
+    background-image: url("{% static 'images/kompleksnysuprovid-4x3.jpg' %}");
     filter: grayscale(100%);
 }
 
 .service-cell[data-service="kulturna-spadshchyna"]:hover {
-    background-image: url("{% static 'images/kulturnaspad.jpg' %}");
+    background-image: url("{% static 'images/kulturnaspad-4x3.jpg' %}");
     filter: grayscale(100%);
 }
 
 .service-cell[data-service="elektronni-systemy"]:hover {
-    background-image: url("{% static 'images/robotavelektronnyh.jpg' %}");
+    background-image: url("{% static 'images/robotavelektronnyh-4x3.jpg' %}");
     filter: grayscale(100%);
 }
+.service-cell[data-service="otrymannyaconstruction"]:hover {
+    background-image: url("{% static 'images/tehni4ni-4x3.jpg' %}");
+    filter: grayscale(100%);
+}
+
 
 
 
@@ -262,7 +265,7 @@
         @media (max-width: 768px) {
             .services-section {
                 height: auto;
-                min-height: 100vh;
+                min-height: 80vh;
                 padding: 20px 0;
             }
 
@@ -489,6 +492,16 @@
   }
 }
 
+@media (max-width: 768px) {
+  .services-section,
+  .services-grid,
+  .grid-cell {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -509,7 +522,7 @@
             <div class="grid-cell empty-cell"></div>
 
             <!-- 2 -->
-            <div class="grid-cell service-cell" data-service="mistobud">
+            <div class="grid-cell service-cell" data-service="dddmistobud">
                 <h3 class="service-title">DUE DILIGENCE ЗЕМЕЛЬНОЇ ДІЛЯНКИ</h3>
                 <div class="service-content">
                     <ul>
@@ -573,16 +586,16 @@
                 <h3 class="service-title">Комплексний супровід будівництва</h3>
                 <div class="service-content">
                     <ul>
-                        <li>розробка проєкту, аналіз проєктних рішень</li>
-                        <li>операції з земельними ділянками</li>
-                        <li>підготовка договорів, звернень</li>
-                        <li>представництво в державних установах</li>
-                        <li>отримання технічних умов</li>
-                        <li>містобудівна документація</li>
-                        <li>дозвільна документація</li>
-                        <li>супровід будівництва, оптимізація витрат замовника</li>
-                        <li>введення обʼєкта в експлуатацію</li>
-                        <li>отримання права власності</li>
+                        <>розробка проєкту, аналіз проєктних рішень,
+                        операції з земельними ділянками,
+                        підготовка договорів, звернень,
+                        представництво в державних установах,
+                        отримання технічних умов,
+                        містобудівна документація,
+                        дозвільна документація,
+                        супровід будівництва, оптимізація витрат замовника,
+                        введення обʼєкта в експлуатацію,
+                        отримання права власності
                     </ul>
                 </div>
                 <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -591,7 +604,7 @@
             </div>
 
             <!-- 5 -->
-            <div class="grid-cell service-cell" data-service="construction">
+            <div class="grid-cell service-cell" data-service="otrymannyaconstruction">
                 <h3 class="service-title">Отримання технічних умов для проєктування</h3>
                 <div class="service-content">
                     <ul>
