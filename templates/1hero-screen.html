@@ -339,65 +339,63 @@
       filter: brightness(0) invert(1);
     }
 
-    /* === SERVICES OVERLAY === */
-    .services-overlay {
-      position: fixed;
-      top: 183px;
-      left: 0;
-      width: 100vw;
-      height: calc(100vh - 179px);
-      backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.92);
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      z-index: 100;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-      overflow: hidden;
-    }
+.services-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 9999999; /* поверх усього */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  overflow: hidden;
+}
 
-    .services-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+.services-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-    /* Контейнер контенту */
-    .services-overlay .overlay-content {
-      width: 100%;
-      height: 100%;
-      animation: dropDown 0.5s cubic-bezier(0.25, 1, 0.3, 1) forwards;
-      transform: translateY(-40px);
-      opacity: 0;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
+.services-overlay .overlay-content {
+  width: 100%;
+  height: 100%;
+  animation: dropDown 0.5s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+  transform: translateY(-40px);
+  opacity: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 
-    .services-overlay.active .overlay-content {
-      transform: translateY(0);
-      opacity: 1;
-    }
+.services-overlay.active .overlay-content {
+  transform: translateY(0);
+  opacity: 1;
+}
 
-    /* Кнопка закриття */
-    .close-overlay {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 48px;
-      background: none;
-      border: none;
-      color: #ffffff;
-      cursor: pointer;
-      z-index: 300;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
+.close-overlay {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 48px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 1000000000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
 
-    .close-overlay:hover {
-      transform: scale(1.1);
-      color: #2F8000;
-    }
+.close-overlay:hover {
+  transform: scale(1.1);
+  color: #2F8000;
+}
+
 
     /* Ефект плавного випадання */
     @keyframes dropDown {
@@ -707,6 +705,82 @@
     z-index: 1002;
   }
 }
+/* === SERVICES OVERLAY === */
+.services-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 9999; /* Збільшуємо z-index */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  overflow: hidden;
+}
+
+.services-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Контейнер контенту */
+.services-overlay .overlay-content {
+  width: 100%;
+  height: 100%;
+  animation: dropDown 0.5s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+  transform: translateY(-40px);
+  opacity: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.services-overlay.active .overlay-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Кнопка закриття */
+.close-overlay {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 48px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 10000; /* Вище за overlay */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.close-overlay:hover {
+  transform: scale(1.1);
+  color: #2F8000;
+}
+
+/* Мобільна версія */
+@media (max-width: 768px) {
+  .services-overlay {
+    top: 0;
+    height: 100vh;
+    z-index: 9999;
+  }
+
+  .close-overlay {
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    z-index: 10000;
+  }
+}
+
 
   </style>
 </head>
@@ -730,7 +804,7 @@
         <li><a href="#services">ПОСЛУГИ</a></li>
         <li><a href="#team">КОМАНДА</a></li>
         <li><a href="#customers">КЛІЄНТИ</a></li>
-        <li><a href="#customers">ПАРТНЕРИ</a></li>
+        <!-- <li><a href="#customers">ПАРТНЕРИ</a></li> -->
         <li><a href="#contact">КОНТАКТИ</a></li>
       </ul>
     </nav>
@@ -756,12 +830,6 @@
   </div>
 </header>
 
-<div class="services-overlay">
-  <button class="close-overlay">&times;</button>
-  <div class="overlay-content">
-    {% include 'services_hover.html' %}
-  </div>
-</div>
 
 <!-- Білі лінії -->
 <div class="line-horizontal"></div>
@@ -794,6 +862,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const burgerMenu = document.querySelector('.burger-menu');
   const mobileNav = document.querySelector('.mobile-nav');
   const servicesMobileLink = document.querySelector('.services-mobile-link');
+  const servicesDesktopLink = document.querySelector('.main-nav li:nth-child(2) a'); // Посилання "ПОСЛУГИ" в десктопному меню
   const overlay = document.querySelector('.services-overlay');
   const closeBtn = document.querySelector('.close-overlay');
 
@@ -816,7 +885,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Відкрити overlay сервісів при кліку на стрілку
+  // Відкрити overlay сервісів при кліку на стрілку (мобільна версія)
   servicesMobileLink.addEventListener('click', (e) => {
     e.preventDefault();
     overlay.classList.add('active');
@@ -826,7 +895,21 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileNav.classList.remove('active');
   });
 
-  // Закрити overlay
+  // Відкрити overlay сервісів при ховері (десктопна версія)
+  servicesDesktopLink.addEventListener('mouseenter', () => {
+    overlay.classList.add('active');
+    document.body.classList.add('no-scroll');
+  });
+
+  // Закрити overlay при відведенні курсора (десктопна версія)
+  overlay.addEventListener('mouseleave', (e) => {
+    if (e.relatedTarget === null || !overlay.contains(e.relatedTarget)) {
+      overlay.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  });
+
+  // Закрити overlay при кліку на кнопку закриття
   closeBtn.addEventListener('click', () => {
     overlay.classList.remove('active');
     document.body.classList.remove('no-scroll');
@@ -852,4 +935,11 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 </body>
+
+<div class="services-overlay">
+  <button class="close-overlay">&times;</button>
+  <div class="overlay-content">
+    {% include 'services_hover.html' %}
+  </div>
+</div>
 </html>

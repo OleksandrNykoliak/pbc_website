@@ -457,6 +457,21 @@
     bottom: 22px; /* трохи вниз при hover, дає ефект руху */
 }
 
+
+@media (max-width: 768px) {
+  .service-cell:hover::before,
+  .service-cell:hover .service-content,
+  .service-cell:hover .service-arrow {
+    all: unset;
+  }
+
+  .service-cell.active::before,
+  .service-cell.active .service-content {
+    display: block;
+    opacity: 1;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -488,9 +503,9 @@
                         <li>оформлення права власності</li>
                     </ul>
                 </div>
-                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                </svg> -->
             </div>
             
             <div class="grid-cell service-cell" data-service="due-diligence">
@@ -502,9 +517,9 @@
                         <li>розроблення Детального плану території (ДПТ)</li>
                     </ul>
                 </div>
-                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                </svg> -->
             </div>
 
             <!-- 3 -->
@@ -513,9 +528,9 @@
                 <div class="service-content">
                     <!-- Тут може бути додатковий текст, якщо потрібно -->
                 </div>
-                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                </svg> -->
             </div>
             
               <div class="grid-cell empty-cell"></div>
@@ -532,9 +547,9 @@
                         <li>дозвіл на виконання будівельних робіт</li>
                     </ul>
                 </div>
-                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                </svg> -->
             </div>
 
             <div class="grid-cell service-cell" data-service="permit">
@@ -553,9 +568,9 @@
                         <li>отримання права власності</li>
                     </ul>
                 </div>
-                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                </svg> -->
             </div>
 
             <!-- 5 -->
@@ -569,9 +584,9 @@
                         <li>Газопостачання</li>
                     </ul>
                 </div>
-                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                </svg> -->
             </div>
 
             <div class="grid-cell service-cell" data-service="due-diligence">
@@ -579,9 +594,9 @@
                 <div class="service-content">
                     <!-- Тут може бути додатковий текст, якщо потрібно -->
                 </div>
-                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                </svg> -->
             </div>
 
             <!-- 6 -->
@@ -597,9 +612,9 @@
                 <div class="service-content">
                     <!-- Тут може бути додатковий текст, якщо потрібно -->
                 </div>
-                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                </svg> -->
             </div>
 
             <!-- 7 -->
@@ -614,9 +629,9 @@
                         <li>Державний земельний кадастр</li>
                     </ul>
                 </div>
-                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                </svg> -->
             </div>
             
             <!-- 8 -->
@@ -624,51 +639,128 @@
                 <h3 class="service-title">Державна реєстрація права власності на нерухоме майно</h3>
                 <div class="service-content">
                 </div>
-                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                </svg> -->
             </div>
             
            
         </div>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const serviceCells = document.querySelectorAll('.service-cell');
-            
-            // Обробка кліків для мобільних пристроїв
-            serviceCells.forEach(cell => {
-                cell.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        // На мобільних: перемикаємо клас active
-                        this.classList.toggle('active');
-                    }
-                });
-            });
+    <script>document.addEventListener("DOMContentLoaded", () => {
+  const burgerMenu = document.querySelector('.burger-menu');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const servicesMobileLink = document.querySelector('.services-mobile-link');
+  const servicesDesktopLink = document.querySelector('.main-nav li:nth-child(2) a');
+  const overlay = document.querySelector('.services-overlay');
+  const closeBtn = document.querySelector('.close-overlay');
+  
+  // Додаємо селектори для кнопок
+  const expertiseBtn = document.querySelector('.expertise-btn');
+  const detailsBtn = document.querySelector('.details-btn');
 
-            // Оптимізація для мобільних пристроїв
-            if (window.innerWidth <= 768) {
-                // Замінюємо hover на touch для мобільних
-                serviceCells.forEach(cell => {
-                    cell.addEventListener('touchstart', function(e) {
-                        // Для мобільних використовуємо тільки клік, не hover
-                        e.preventDefault();
-                    });
-                });
-            }
+  // Функція для закриття overlay
+  const closeOverlay = () => {
+    overlay.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+  };
 
-            // Перевірка зміни орієнтації
-            window.addEventListener('resize', function() {
-                if (window.innerWidth <= 768) {
-                    // Оновлюємо висоту секції для мобільних
-                    const section = document.querySelector('.services-section');
-                    if (section) {
-                        section.style.height = 'auto';
-                    }
-                }
-            });
-        });
-    </script>
+  // Функція для закриття мобільного меню
+  const closeMobileMenu = () => {
+    burgerMenu.classList.remove('active');
+    mobileNav.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+  };
+
+  // Бургер-меню
+  burgerMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+    burgerMenu.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
+  });
+
+  // Закрити мобільне меню при кліку на посилання
+  mobileNav.querySelectorAll('a').forEach(link => {
+    if (!link.classList.contains('services-mobile-link')) {
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
+    }
+  });
+
+  // Відкрити overlay сервісів при кліку на стрілку (мобільна версія)
+  servicesMobileLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    overlay.classList.add('active');
+    document.body.classList.add('no-scroll');
+    closeMobileMenu();
+  });
+
+  // Відкрити overlay сервісів при ховері (десктопна версія)
+  servicesDesktopLink.addEventListener('mouseenter', () => {
+    overlay.classList.add('active');
+    document.body.classList.add('no-scroll');
+  });
+
+  // Закрити overlay при відведенні курсора (десктопна версія)
+  overlay.addEventListener('mouseleave', (e) => {
+    if (e.relatedTarget === null || !overlay.contains(e.relatedTarget)) {
+      closeOverlay();
+    }
+  });
+
+  // Закрити overlay при кліку на кнопку закриття
+  closeBtn.addEventListener('click', () => {
+    closeOverlay();
+  });
+
+  // Закрити overlay при кліку на кнопку "ЕКСПЕРТИЗА"
+  if (expertiseBtn) {
+    expertiseBtn.addEventListener('click', (e) => {
+      e.preventDefault(); // Запобігаємо переходу по посиланню
+      closeOverlay();
+      closeMobileMenu();
+      
+      // Додатковий код для прокрутки до секції послуг, якщо потрібно
+      const servicesSection = document.querySelector('#servicessection');
+      if (servicesSection) {
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Закрити overlay при кліку на кнопку "ДЕТАЛІ"
+  if (detailsBtn) {
+    detailsBtn.addEventListener('click', (e) => {
+      e.preventDefault(); // Запобігаємо переходу по посиланню
+      closeOverlay();
+      closeMobileMenu();
+      
+      // Додатковий код для прокрутки до секції послуг, якщо потрібно
+      const servicesSection = document.querySelector('#servicessection');
+      if (servicesSection) {
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Закрити при кліку поза контентом
+  overlay.addEventListener('click', (e) => {
+    if (e.target.classList.contains('services-overlay')) {
+      closeOverlay();
+    }
+  });
+
+  // Закрити меню при кліку поза ним
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.mobile-menu-wrapper') && mobileNav.classList.contains('active')) {
+      closeMobileMenu();
+    }
+  });
+});
+</script>
+
 </body>
 </html>
