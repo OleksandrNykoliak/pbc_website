@@ -327,6 +327,18 @@
     }
 }
 
+@media (max-width: 768px) {
+  .services-section {
+    overflow-y: auto;      /* додає вертикальний скрол всередині секції */
+    max-height: 100vh;     /* обмежує висоту екраном */
+    position: relative;
+    overscroll-behavior: contain; /* блокує прокрутку сторінки під секцією */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* плавна прокрутка для iOS */
+  }
+
+
+}
         
     </style>
 </head>

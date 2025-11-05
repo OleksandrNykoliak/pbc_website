@@ -240,6 +240,23 @@
     filter: grayscale(100%);
 }
 
+/* ====== НОВІ ТРИ ХОВЕРИ ====== */
+.service-cell[data-service="kompleksnyy"]:hover {
+    background-image: url("{% static 'images/kompleksnysuprovid.jpg' %}");
+    filter: grayscale(100%);
+}
+
+.service-cell[data-service="kulturna-spadshchyna"]:hover {
+    background-image: url("{% static 'images/kulturnaspad.jpg' %}");
+    filter: grayscale(100%);
+}
+
+.service-cell[data-service="elektronni-systemy"]:hover {
+    background-image: url("{% static 'images/robotavelektronnyh.jpg' %}");
+    filter: grayscale(100%);
+}
+
+
 
         /* ====== МОБІЛЬНА ВЕРСІЯ (тільки до 768px) ====== */
         @media (max-width: 768px) {
@@ -552,7 +569,7 @@
                 </svg> -->
             </div>
 
-            <div class="grid-cell service-cell" data-service="permit">
+            <div class="grid-cell service-cell" data-service="kompleksnyy">
                 <h3 class="service-title">Комплексний супровід будівництва</h3>
                 <div class="service-content">
                     <ul>
@@ -589,7 +606,7 @@
                 </svg> -->
             </div>
 
-            <div class="grid-cell service-cell" data-service="due-diligence">
+            <div class="grid-cell service-cell" data-service="kulturna-spadshchyna">
                 <h3 class="service-title">Погодження проєктів на обʼєкти в зоні охорони культурної спадщини</h3>
                 <div class="service-content">
                     <!-- Тут може бути додатковий текст, якщо потрібно -->
@@ -618,7 +635,7 @@
             </div>
 
             <!-- 7 -->
-            <div class="grid-cell service-cell" data-service="commissioning">
+            <div class="grid-cell service-cell" data-service="elektronni-systemy">
                 <h3 class="service-title">Робота в електронних системах</h3>
                 <div class="service-content">
                     <ul>
