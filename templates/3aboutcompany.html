@@ -24,6 +24,7 @@
       --pbc-about-black: #0F0F0F;
       --pbc-about-gray: #5D5D5D;
       --pbc-about-line: #2B2B2B;
+      --pbc-about-green: #2F8000;
     }
 
     /* === LAYOUT === */
@@ -75,11 +76,8 @@
       text-transform: uppercase;
       color: var(--pbc-about-gray);
       cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .pbc-about-navitem:hover {
-      color: var(--pbc-about-white);
+      transition: all 0.3s ease;
+      padding: 10px 0;
     }
 
     .pbc-about-navitem.active {
@@ -92,7 +90,7 @@
       left: -25px;
       top: 0;
       width: 5px;
-      height: 35px;
+      height: 100%;
       background: var(--pbc-about-white);
     }
 
@@ -105,6 +103,19 @@
       gap: 45px;
     }
 
+    .pbc-about-block {
+      opacity: 0.5;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .pbc-about-block.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .pbc-about-block p {
       font-size: 18px;
       font-weight: 700;
@@ -112,6 +123,11 @@
       text-transform: uppercase;
       color: var(--pbc-about-gray);
       margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .pbc-about-block.active p {
+      color: var(--pbc-about-white);
     }
 
     .pbc-about-block p strong {
@@ -126,6 +142,31 @@
       line-height: 35px;
     }
 
+    /* Стилі для скролу */
+    .pbc-about-sidebar {
+      max-height: 80vh;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    /* Приховати скролбар для кращого вигляду */
+    .pbc-about-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .pbc-about-sidebar::-webkit-scrollbar-track {
+      background: var(--pbc-about-line);
+    }
+
+    .pbc-about-sidebar::-webkit-scrollbar-thumb {
+      background: var(--pbc-about-gray);
+      border-radius: 2px;
+    }
+
+    .pbc-about-sidebar::-webkit-scrollbar-thumb:hover {
+      background: var(--pbc-about-white);
+    }
+
     /* ===== МОБІЛЬНА ВЕРСІЯ (тільки для екранів до 768px) ===== */
     @media (max-width: 768px) {
       .pbc-about-main {
@@ -136,8 +177,6 @@
         min-height: auto;
         position: relative;
       }
-
-    
 
       /* Sidebar для мобільних */
       .pbc-about-sidebar {
@@ -154,6 +193,7 @@
         transition: left 0.3s ease;
         overflow-y: auto;
         border-right: 1px solid var(--pbc-about-line);
+        max-height: 100vh;
       }
 
       .pbc-about-sidebar.active {
@@ -176,14 +216,11 @@
         transition: all 0.3s ease;
       }
 
-      .pbc-about-navitem:hover {
-        background: rgba(43, 43, 43, 0.8);
-        transform: translateY(-2px);
-      }
-
       .pbc-about-navitem.active {
         background: rgba(255, 255, 255, 0.1);
         border-color: var(--pbc-about-white);
+        transform: scale(1.05);
+        font-size: 20px;
       }
 
       .pbc-about-navitem.active::before {
@@ -205,12 +242,60 @@
         padding: 20px;
         background: rgba(43, 43, 43, 0.3);
         border-radius: 8px;
-        border-left: 3px solid var(--pbc-about-white);
+        border-left: 3px solid transparent;
+        transition: all 0.3s ease;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+      }
+
+      .pbc-about-block.active {
+        border-left: 3px solid var(--pbc-about-green);
+        background: rgba(47, 128, 0, 0.1);
+        transform: scale(1.02);
       }
 
       .pbc-about-block p {
         font-size: 16px;
         line-height: 1.4;
+      }
+
+      /* Кнопка закриття для мобільного меню */
+      .pbc-mobile-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        position: fixed;
+        top: 30px;
+        left: 20px;
+        z-index: 100;
+      }
+
+      .pbc-mobile-toggle span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: var(--pbc-about-white);
+        transition: all 0.3s ease;
+        border-radius: 3px;
+      }
+
+      .pbc-mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .pbc-mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .pbc-mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
       }
     }
 
@@ -229,13 +314,23 @@
         padding: 12px 16px;
       }
 
+      .pbc-about-navitem.active {
+        font-size: 18px;
+      }
+
       .pbc-about-block {
         padding: 16px;
+        min-height: 120px;
       }
 
       .pbc-about-block p {
         font-size: 15px;
         line-height: 1.3;
+      }
+
+      .pbc-mobile-toggle {
+        top: 25px;
+        left: 15px;
       }
     }
 
@@ -276,38 +371,38 @@
 
 <body class="pbc-about-body">
   <!-- Mobile Menu Toggle - тільки для мобільних -->
-  <!-- <button class="pbc-mobile-toggle" aria-label="Відкрити меню" style="display: none;">
+  <button class="pbc-mobile-toggle" aria-label="Відкрити меню" style="display: none;">
     <span></span>
     <span></span>
     <span></span>
-  </button> -->
+  </button>
 
   <main class="pbc-about-main" id="aboutus">
     <!-- ===== LEFT NAVIGATION ===== -->
     <nav class="pbc-about-sidebar">
-      <div class="pbc-about-navitem active">Про нас</div>
-      <div class="pbc-about-navitem">Кому ми будемо корисні</div>
-      <div class="pbc-about-navitem">Комплексний супровід будівництва</div>
-      <div class="pbc-about-navitem">Чому обирають нас</div>
+      <div class="pbc-about-navitem active" data-target="0">Про нас</div>
+      <div class="pbc-about-navitem" data-target="1">Кому ми будемо корисні</div>
+      <div class="pbc-about-navitem" data-target="2">Комплексний супровід будівництва</div>
+      <div class="pbc-about-navitem" data-target="3">Чому обирають нас</div>
     </nav>
 
     <!-- ===== RIGHT TEXT CONTENT ===== -->
     <section id="about" class="pbc-about-content">
-      <div class="pbc-about-block">
+      <div class="pbc-about-block active" id="content-0">
         <p><strong>Prime Build Consulting Group — це консалтингова компанія,</strong> що спеціалізується на юридичному та інженерно-технічному супроводі будівельних проєктів.</p>
       </div>
 
-      <div class="pbc-about-block">
+      <div class="pbc-about-block" id="content-1">
         <p><strong>Ми створили команду професіоналів, які поєднують глибокі знання законодавства з практичним досвідом у сфері девелопменту.</strong>  
         <br>
           Наше завдання — зробити шлях від ідеї до готового об'єкта максимально прозорим, зрозумілим і без ризиків для замовника.</p>
       </div>
 
-      <div class="pbc-about-block">
+      <div class="pbc-about-block" id="content-2">
         <p><strong>Наші клієнти довіряють нам, тому що ми працюємо відкрито, відповідально та з урахуванням усіх нюансів сучасного будівельного законодавства.</strong></p>
       </div>
 
-      <div class="pbc-about-block">
+      <div class="pbc-about-block" id="content-3">
         <p><strong>Ми не просто надаємо послуги — ми стаємо вашим надійним партнером,</strong> який оптимізує ваші витрати та буде супроводжувати проєкт до моменту його реалізації.</p>
       </div>
     </section>
@@ -315,76 +410,165 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Перевіряємо ширину екрана
-      function isMobile() {
-        return window.innerWidth <= 768;
-      }
+      const navItems = document.querySelectorAll('.pbc-about-navitem');
+      const contentBlocks = document.querySelectorAll('.pbc-about-block');
+      const sidebar = document.querySelector('.pbc-about-sidebar');
+      const mobileToggle = document.querySelector('.pbc-mobile-toggle');
 
-      // Ініціалізація тільки для мобільних
-      if (isMobile()) {
-        const mobileToggle = document.querySelector('.pbc-mobile-toggle');
-        const sidebar = document.querySelector('.pbc-about-sidebar');
-        const navItems = document.querySelectorAll('.pbc-about-navitem');
+      // Функція для активації елемента
+      function activateItem(index) {
+        // Видаляємо активний клас з усіх елементів
+        navItems.forEach(item => item.classList.remove('active'));
+        contentBlocks.forEach(block => block.classList.remove('active'));
 
-        // Показуємо кнопку меню
-        mobileToggle.style.display = 'flex';
+        // Додаємо активний клас до вибраного елемента
+        navItems[index].classList.add('active');
+        contentBlocks[index].classList.add('active');
 
-        // Обробник для кнопки меню
-        mobileToggle.addEventListener('click', function() {
-          this.classList.toggle('active');
-          sidebar.classList.toggle('active');
+        // Плавна прокрутка до відповідного контенту
+        contentBlocks[index].scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
         });
 
-        // Обробник для пунктів меню
-        navItems.forEach(item => {
-          item.addEventListener('click', function() {
-            // Закриваємо меню після вибору
-            mobileToggle.classList.remove('active');
-            sidebar.classList.remove('active');
+        // На мобільних закриваємо сайдбар після вибору
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('active');
+          mobileToggle.classList.remove('active');
+        }
+      }
+
+      // Додаємо обробники подій для навігації
+      navItems.forEach((item, index) => {
+        // Клік
+        item.addEventListener('click', () => {
+          activateItem(index);
+        });
+
+        // Ховер (тільки для десктопу)
+        if (window.innerWidth > 768) {
+          item.addEventListener('mouseenter', () => {
+            // Тимчасово активуємо при ховері
+            navItems.forEach(i => i.classList.remove('active'));
+            contentBlocks.forEach(b => b.classList.remove('active'));
             
-            // Оновлюємо активний пункт
-            navItems.forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
+            item.classList.add('active');
+            contentBlocks[index].classList.add('active');
           });
-        });
 
-        // Закриваємо меню при кліку поза ним
-        document.addEventListener('click', function(event) {
-          if (!sidebar.contains(event.target) && !mobileToggle.contains(event.target)) {
-            mobileToggle.classList.remove('active');
-            sidebar.classList.remove('active');
-          }
-        });
+          // Повертаємо до останнього активного при виході миші
+          let lastActiveIndex = 0; // Початкове значення
+          
+          item.addEventListener('mouseleave', () => {
+            // Оновлюємо останній активний індекс при кліку
+            navItems.forEach((nav, i) => {
+              if (nav.classList.contains('active')) {
+                lastActiveIndex = i;
+              }
+            });
+          });
 
-        // Запобігаємо закриттю при кліку всередині меню
-        sidebar.addEventListener('click', function(event) {
-          event.stopPropagation();
-        });
+          // Оновлюємо lastActiveIndex при кліку
+          item.addEventListener('click', () => {
+            lastActiveIndex = index;
+          });
+        }
+      });
+
+      // Обробник для мобільного меню
+      function initMobileMenu() {
+        if (window.innerWidth <= 768) {
+          mobileToggle.style.display = 'flex';
+          
+          mobileToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            sidebar.classList.toggle('active');
+          });
+
+          // Закриваємо меню при кліку поза ним
+          document.addEventListener('click', function(event) {
+            if (!sidebar.contains(event.target) && !mobileToggle.contains(event.target)) {
+              mobileToggle.classList.remove('active');
+              sidebar.classList.remove('active');
+            }
+          });
+        } else {
+          mobileToggle.style.display = 'none';
+        }
       }
 
-      // Обробник зміни розміру вікна
-      window.addEventListener('resize', function() {
-        const mobileToggle = document.querySelector('.pbc-mobile-toggle');
-        
-        if (!isMobile()) {
-          // Ховаємо кнопку меню на десктопі
-          if (mobileToggle) {
-            mobileToggle.style.display = 'none';
-            mobileToggle.classList.remove('active');
-          }
+      // Автоматична прокрутка сайдбару при зміні активного елемента
+      function scrollSidebarToActive() {
+        const activeNav = document.querySelector('.pbc-about-navitem.active');
+        if (activeNav && sidebar.scrollHeight > sidebar.clientHeight) {
+          const sidebarRect = sidebar.getBoundingClientRect();
+          const activeRect = activeNav.getBoundingClientRect();
           
-          // Забезпечуємо, що сайдбар видимий на десктопі
-          const sidebar = document.querySelector('.pbc-about-sidebar');
-          if (sidebar) {
-            sidebar.style.left = '';
-            sidebar.classList.remove('active');
-          }
-        } else {
-          // Показуємо кнопку меню на мобільних
-          if (mobileToggle) {
-            mobileToggle.style.display = 'flex';
+          // Якщо активний елемент не в зоні видимості
+          if (activeRect.top < sidebarRect.top || activeRect.bottom > sidebarRect.bottom) {
+            activeNav.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+              inline: 'nearest'
+            });
           }
         }
+      }
+
+      // Оновлюємо прокрутку сайдбару при активації
+      const originalActivateItem = activateItem;
+      activateItem = function(index) {
+        originalActivateItem(index);
+        setTimeout(scrollSidebarToActive, 300);
+      };
+
+      // Автоматичне перемикання при скролі на мобільних
+      function initScrollActivation() {
+        if (window.innerWidth <= 768) {
+          let isScrolling = false;
+          
+          window.addEventListener('scroll', function() {
+            if (!isScrolling) {
+              isScrolling = true;
+              
+              setTimeout(() => {
+                const contentSections = document.querySelectorAll('.pbc-about-block');
+                let closestIndex = 0;
+                let closestDistance = Infinity;
+
+                contentSections.forEach((section, index) => {
+                  const rect = section.getBoundingClientRect();
+                  const distance = Math.abs(rect.top);
+                  
+                  if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                  }
+                });
+
+                // Активуємо найближчий розділ тільки якщо він у верхній половині екрану
+                if (closestDistance < window.innerHeight / 2) {
+                  navItems.forEach(item => item.classList.remove('active'));
+                  contentBlocks.forEach(block => block.classList.remove('active'));
+                  
+                  navItems[closestIndex].classList.add('active');
+                  contentBlocks[closestIndex].classList.add('active');
+                }
+
+                isScrolling = false;
+              }, 100);
+            }
+          }, { passive: true });
+        }
+      }
+
+      // Ініціалізація
+      initMobileMenu();
+      initScrollActivation();
+      
+      // Обробник зміни розміру вікна
+      window.addEventListener('resize', function() {
+        initMobileMenu();
       });
     });
   </script>
