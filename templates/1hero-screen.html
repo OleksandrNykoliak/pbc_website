@@ -806,6 +806,36 @@
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   }
 }
+#aboutsection {
+  scroll-margin-top: 180px;
+}
+
+@media (max-width: 768px) {
+  #aboutsection {
+    scroll-margin-top: 80px;
+  }
+}
+
+  #teamsection {
+  scroll-margin-top: 180px; /* замість 180 */
+}
+
+@media (max-width: 768px) {
+  #teamsection {
+    scroll-margin-top: 80px; /* замість 80 */
+  }
+}
+
+  #customerssection {
+  scroll-margin-top: 180px; /* замість 180 */
+}
+
+@media (max-width: 768px) {
+  #customerssection {
+    scroll-margin-top: 80px; /* замість 80 */
+  }
+}
+
 
 
   </style>
@@ -826,12 +856,12 @@
     <!-- Десктопне меню (видиме тільки на десктопі) -->
     <nav class="main-nav">
       <ul>
-        <li><a href="#about">ПРО НАС</a></li>
+        <li><a href="#aboutsection">ПРО НАС</a></li>
         <li><a href="#services">ПОСЛУГИ</a></li>
-        <li><a href="#team">КОМАНДА</a></li>
-        <li><a href="#customers">КЛІЄНТИ</a></li>
+        <li><a href="#teamsection">КОМАНДА</a></li>
+        <li><a href="#customerssection">КЛІЄНТИ</a></li>
         <!-- <li><a href="#customers">ПАРТНЕРИ</a></li> -->
-        <li><a href="#contact">КОНТАКТИ</a></li>
+        <li><a href="#contactsection">КОНТАКТИ</a></li>
       </ul>
     </nav>
     
@@ -845,11 +875,11 @@
       
       <nav class="mobile-nav">
         <ul>
-          <li><a href="#about">ПРО НАС</a></li>
+          <li><a href="#aboutsection">ПРО НАС</a></li>
           <li><a href="#services" class="services-mobile-link">ПОСЛУГИ</a></li>
-          <li><a href="#team">КОМАНДА</a></li>
-          <li><a href="#customers">КЛІЄНТИ</a></li>
-          <li><a href="#contact">КОНТАКТИ</a></li>
+          <li><a href="#teamsection">КОМАНДА</a></li>
+          <li><a href="#customerssection">КЛІЄНТИ</a></li>
+          <li><a href="#contactsection">КОНТАКТИ</a></li>
         </ul>
       </nav>
     </div>
