@@ -353,6 +353,50 @@
   }
 }
 
+/* === МОБІЛЬНА ОПТИМІЗАЦІЯ ДЛЯ SERVICES === */
+@media (max-width: 768px) {
+  .services-section {
+    flex-direction: column;
+    overflow-y: auto; /* додає внутрішній скрол */
+    max-height: 100vh; /* не виходить за межі екрана */
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 40px; /* запас під кнопкою */
+  }
+
+  .services-list {
+    padding: 20px 15px; /* зменшуємо внутрішні відступи */
+  }
+
+  .service-item {
+    margin-bottom: 18px; /* менший відступ між пунктами */
+  }
+
+  .service-text {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .service-icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+  }
+
+  .expertise-btn {
+    margin: 25px auto 10px;
+    font-size: 14px;
+    padding: 10px 22px;
+  }
+
+  .services-visual {
+    padding: 20px 15px;
+  }
+
+  .team-image {
+    display: none; /* ховаємо фото для економії місця */
+  }
+}
+
 
 
     </style>
