@@ -225,7 +225,7 @@
             }
 
             .expertise-btn {
-                margin: 30px auto 0;
+                margin: 0px auto 0;
                 align-self: center;
             }
 
@@ -330,7 +330,7 @@
 @media (max-width: 768px) {
   .services-section {
     overflow-y: auto;      /* додає вертикальний скрол всередині секції */
-    max-height: 100vh;     /* обмежує висоту екраном */
+    max-height: 200vh;     /* обмежує висоту екраном */
     position: relative;
     overscroll-behavior: contain; /* блокує прокрутку сторінки під секцією */
     scroll-behavior: smooth;
@@ -339,7 +339,19 @@
 
 
 }
-        
+     
+
+@media (max-width: 768px) {
+  /* 1. Приховати фото */
+  .team-image {
+    display: none !important;
+  }
+
+  /* 2. Додати вільний простір під кнопкою */
+  .expertise-btn {
+    margin-bottom: 60px !important; /* можеш змінити 60px на 80px для більшого простору */
+  }
+}
 
 
     </style>
@@ -348,53 +360,77 @@
     <section class="services-section">
         <!-- Лівий блок -->
         <div class="services-list">
-            <ul class="services-items">
-                <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="service-text">DUE DILIGENCE ЗЕМЕЛЬНОЇ<br> ДІЛЯНКИ</span>
-                </li>
-                <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="service-text">ПІДГОТОВКА ДОГОВОРІВ ПІДРЯДУ,<br> ОРЕНДИ, КУПІВЛІ-ПРОДАЖУ</span>
-                </li>
-                <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="service-text">ОТРИМАННЯ ДОЗВІЛЬНОЇ<br> ДОКУМЕНТАЦІЇ НА БУДІВНИЦТВО</span>
-                </li>
-                <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="service-text">СУПРОВІД ПІД ЧАС БУДІВНИЦТВА</span>
-                </li>
-                <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="service-text">ВВЕДЕННЯ ОБ'ЄКТА В<br> ЕКСПЛУАТАЦІЮ</span>
-                </li>
-                <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="service-text">РЕЄСТРАЦІЯ ПРАВА ВЛАСНОСТІ</span>
-                </li>
-            </ul>
-            
-            <a href="#servicessection" class="expertise-btn">
-                ЕКСПЕРТИЗА
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </div>
-        
+  <ul class="services-items">
+    <li class="service-item">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="service-text">DUE DILIGENCE ЗЕМЕЛЬНОЇ ДІЛЯНКИ</span>
+    </li>
+    <li class="service-item">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="service-text">Супровід розроблення та затвердження містобудівної документації</span>
+    </li>
+    <li class="service-item">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="service-text">Будівельна амністія</span>
+    </li>
+    <li class="service-item">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="service-text">ОТРИМАННЯ ДОЗВІЛЬНОЇ ДОКУМЕНТАЦІЇ НА БУДІВНИЦТВО</span>
+    </li>
+    <li class="service-item">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="service-text">Комплексний супровід будівництва</span>
+    </li>
+    <li class="service-item">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="service-text">Отримання технічних умов для проєктування</span>
+    </li>
+    <li class="service-item">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="service-text">Погодження проєктів на обʼєкти в зоні охорони культурної спадщини</span>
+    </li>
+    <li class="service-item">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="service-text">Супровід отримання будівельного паспорту або схеми намірів забудови земельної ділянки</span>
+    </li>
+    <li class="service-item">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="service-text">Робота в електронних системах</span>
+    </li>
+    <li class="service-item">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="service-text">Державна реєстрація права власності на нерухоме майно</span>
+    </li>
+  </ul>
+
+  <a href="#servicessection" class="expertise-btn">
+    ЕКСПЕРТИЗА
+    <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</div>
+
         <!-- Правий блок -->
         <div class="services-visual">
             <div class="visual-content">

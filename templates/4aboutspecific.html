@@ -393,7 +393,11 @@
     }
 }
 
-
+@media (max-width: 768px) {
+  .metric-label {
+    font-size: 16px !important; /* перекриє inline-стиль 18px */
+  }
+}
     </style>
 </head>
 <body>
@@ -404,7 +408,7 @@
             </div>
             <div class="metric-block">
                 <div class="metric-value">250&nbsp;ТИС.+&nbsp;м&sup2;</div>
-                <div class="metric-label">НА ЮРИДИЧНОМУ СУПРОВОДІ</div>
+                <div class="metric-label" style="font-size:18px;">НА ЮРИДИЧНОМУ СУПРОВОДІ</div>
             </div>
 
    
